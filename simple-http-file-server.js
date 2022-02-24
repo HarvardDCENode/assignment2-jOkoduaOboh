@@ -22,7 +22,7 @@ var server = http.createServer((req, res) => {
 	console.log('cwd is %s', process.cwd());
 
 	//Log the query/search parameters of the url
-	console.log("Search Parameters: ");
+	console.log("\nSearch Parameters: ");
 	searchParams.forEach(function(value, key) {
 		console.log(key + ": \"" + value + "\"");
 	});
