@@ -12,10 +12,29 @@ var server = http.createServer((req, res) => {
 	console.log(req.url);
 
 	// parse the URL into its component parts
-	const parsedUrl = new URL(req.url, `http://${req.headers.host}`);
-	console.log(parsedUrl);
+	// const parsedUrl = new URL(req.url, `http://${req.headers.host}`);
+	// console.log(parsedUrl);
+
+	console.log(`Requested URL: ${req.url}`);
+    let parsedUrl;
+    try {   
+        parsedUrl = new URL(req.url, `http://${req.headers.host}`);
+        console.log(parsedUrl);
+    } catch (e) { 
+        console.log(`URL parse error: ${e}`);
+        res.writeHead(400);
+        res.end("Error 400: Bad Request");
+        return;
+    }
 	// extract the pathname and query properties
-	const { pathname, query , searchParams} = parsedUrl;
+	var { pathname, searchParams} = parsedUrl;
+
+	if (pathname == "/index.html")
+		pathname = "htdocs" + pathname;
+	if (pathname == "/smile.jpg")
+		pathname = "htdocs" + pathname;
+	if (pathname == "/coffee_img.jpg")
+		pathname = "htdocs" + pathname;
 
 	// output absolute path info
 	console.log('__dirname is %s', __dirname);
@@ -33,7 +52,7 @@ var server = http.createServer((req, res) => {
 
 	// Create an absolute path to the requested file.
 	// Assume the server was started from the webroot
-	const absolute_path_to_file = path.join(__dirname, pathname);
+	const absolute_path_to_file = path.join(process.cwd(), pathname);
 	console.log('absolute_path_to_file is %s', absolute_path_to_file);
 
 
