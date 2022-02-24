@@ -1,0 +1,22 @@
+{
+  "name": "assignment2-jokoduaoboh",
+  "version": "1.0.0",
+  "description": "package for assignment 2",
+  "main": "simple-http-file-server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HarvardDCENode/assignment2-jOkoduaOboh.git"
+  },
+  "author": "John Okodua-Oboh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HarvardDCENode/assignment2-jOkoduaOboh/issues"
+  },
+  "homepage": "https://github.com/HarvardDCENode/assignment2-jOkoduaOboh#readme",
+  "dependencies": {
+    "underscore": "^1.13.2"
+  }
+}
